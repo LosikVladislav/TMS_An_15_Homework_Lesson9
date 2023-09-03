@@ -9,7 +9,7 @@ public class Authorization {
                 if(checkLength(login) || checkSpace(login)){
                     throw new WrongLoginException("","Login error. Enter login correctly");
                 }
-                if(checkLength(password) || checkSpace(password) || !checkDigits(password)){
+                if(checkLength(password) || checkSpace2(password) || !checkDigits2(password)){
                     throw  new WrongPasswordException("", "Password error. Enter password correctly");
                 }
                 if(!password.equals(confirmPassword)){
@@ -25,5 +25,21 @@ public class Authorization {
     }
     private  static boolean checkDigits(String str){
         return str.matches("^[0-9]+$");
+    }
+    private  static boolean checkDigits2(String str){
+        boolean check = false;
+        for(int i = 0; i < str.length(); i++){
+            if(str.toCharArray()[i] >= 48 && str.toCharArray()[i] <= 57)
+                check = true;
+        }
+        return check;
+    }
+    private static boolean checkSpace2(String str){
+        boolean check = false;
+        for(int i = 0; i < str.length(); i++){
+            if(str.toCharArray()[i] == ' ')
+                check =true;
+        }
+        return check;
     }
 }
