@@ -29,7 +29,7 @@ public class Authorization {
     private  static boolean checkDigits2(String str){
         boolean check = false;
         for(int i = 0; i < str.length(); i++){
-            if(str.toCharArray()[i] >= 48 && str.toCharArray()[i] <= 57)
+            if(str.toCharArray()[i] >= '0' && str.toCharArray()[i] <= '9')
                 check = true;
         }
         return check;
